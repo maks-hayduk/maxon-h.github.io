@@ -1,0 +1,49 @@
+@import url(reset.css);
+
+.red, .redBehind{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+    left: 45vw;
+}
+body{
+    background-color: black;
+}
+.redBehind{
+    top: 0;
+    left: 0;
+}
+.red{
+    background-color: red;
+    z-index: 5;
+}
+.redBehind{
+    background-image: radial-gradient(rgba(0,0,0,0), red);
+    animation-name: first;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    z-index: 0;
+}
+.red:hover .redBehind{
+    animation-play-state:paused;
+    cursor: pointer;
+}
+@keyframes first {
+    0%{
+        width: 150px;
+        height: 150px;
+        opacity: 0;
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        left: -25px;
+        top: -25px;
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
